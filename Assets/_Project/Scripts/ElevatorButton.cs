@@ -1,12 +1,16 @@
 ﻿public class ElevatorButton : InteractButton
 {
-    public string ElevatorKey;
     public int FloorNumber;
+    private string _elevatorKey;
 
     public override void Use()
     {
         base.Use();
+        PadikService.CallElevator(_elevatorKey, FloorNumber);
+    }
 
-        PadikService.CallElevator(ElevatorKey, FloorNumber);
+    public void SetElevatorKey(string value)
+    {
+        _elevatorKey = value;
     }
 }

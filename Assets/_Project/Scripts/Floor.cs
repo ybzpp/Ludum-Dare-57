@@ -17,20 +17,14 @@ public class Floor : MonoBehaviour
 {
     public int FloorNumber;
     public Transform TargetPoint;
-    public GameObject[] FloorNumbers;
-    public ElevatorButton[] Buttons;
+    public FloorButton[] Buttons;
     public ElevatorDoorsGroup[] Doors;
 
     private void Start()
     {
         foreach (var button in Buttons)
         {
-            button.FloorNumber = FloorNumber;
-        }
-
-        for (var i = 0; i < FloorNumbers.Length; i++) 
-        {
-            FloorNumbers[i].SetActive(i == FloorNumber); 
+            button.SetFloorNumber(FloorNumber);
         }
     }
 

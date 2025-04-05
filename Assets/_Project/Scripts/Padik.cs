@@ -26,15 +26,6 @@ public class Padik : MonoBehaviour
     {
         PadikService.Elevators = Elevator.ToList();
         PadikService.Floors = Floors;
-
-        for (int i = 0; i < Floors.Length; i++)
-        {
-            Floors[i].FloorNumber = i;
-        }
-    }
-
-    private void Start()
-    {
     }
 }
 

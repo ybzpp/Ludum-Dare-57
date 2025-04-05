@@ -1,10 +1,16 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; // Для использования List
+using System.Collections.Generic;
+using System; // Для использования List
 
 public class Elevator : MonoBehaviour
 {
     public string ID;
+
+    public bool CanUse => !Broken && !NotEnergy;
+    public bool Broken;
+    public bool NotEnergy;
+    
 
     [Tooltip("Массив дверей лифта")]
     public ElevatorDoor[] elevatorDoors;
@@ -28,24 +34,60 @@ public class Elevator : MonoBehaviour
 
     private bool isReady;
 
+    public List<ElevatorButton> elevatorButtons;
+
     private void Start()
     {
-        isReady = true;
-
         if (elevatorDoors == null || elevatorDoors.Length == 0)
         {
             Debug.LogError("Не назначены двери для лифта!");
         }
+
+        foreach (var button in elevatorButtons)
+            button.SetElevatorKey(ID);
+
+        isReady = true;
+    }
+
+    public void Fix()
+    {
+        Broken = false;
+        UpdateState();
+    }
+
+    public void SetEnergy()
+    {
+        NotEnergy = false;
+        UpdateState();
+    }
+    
+
+    public void EnergyDisable()
+    {
+        NotEnergy = true;
+        UpdateState();
+    }
+
+    private void UpdateState()
+    {
+    }
+
+    public void SetFloorToButtons(int floor)
+    {
+        foreach (var button in elevatorButtons)
+            button.FloorNumber = floor;
     }
 
     private void OpenDoors()
     {
+        if (!CanUse) return;
         if (elevatorDoors == null) return;
 
         foreach (var e in elevatorDoors)
         {
             e.Open();
         }
+
         doorsOpen = true;
         DoorAudioSource.PlayOneShot(OpenDoorAudio);
         PadikService.Floors[currentFloor].OpenDoors(ID);
@@ -55,12 +97,14 @@ public class Elevator : MonoBehaviour
 
     private void CloseDoors()
     {
+        if (!CanUse) return;
         if (elevatorDoors == null) return;
 
         foreach (var e in elevatorDoors)
         {
             e.Close();
         }
+
         doorsOpen = false;
         DoorAudioSource.PlayOneShot(CloseDoorAudio);
         PadikService.Floors[currentFloor].CloseDoors(ID);
@@ -145,7 +189,7 @@ public class Elevator : MonoBehaviour
         InElevatorAudioSource.Stop();
         OpenDoors();
         ProcessFloorRequest(); // Обрабатываем следующий запрос из очереди
-
+        EnergyDisable();
     }
 
     //Helper method to add a small delay before calling elevator
@@ -161,6 +205,11 @@ public class Elevator : MonoBehaviour
     // Добавленный метод Call
     public void Call(int floorNumber)
     {
+        Debug.Log($"Elevator Call key:{ID} floorNumber:{floorNumber} CanUse:{CanUse} isMoving:{isMoving} isReady:{isReady} ");
+
+        if (!CanUse)
+            return;
+
         if (isMoving || !isReady)
         {
             return;

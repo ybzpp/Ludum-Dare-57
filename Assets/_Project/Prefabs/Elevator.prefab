@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4532547170689145594}
   - component: {fileID: 768616192075894117}
   - component: {fileID: 1213480664826097976}
-  - component: {fileID: 4475633663297669239}
   - component: {fileID: 2100034385610936870}
+  - component: {fileID: 3840925263681130045}
   m_Layer: 6
   m_Name: btn2
   m_TagString: Untagged
@@ -110,41 +110,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012499999, y: 0.012499999, z: 0.024999999}
   m_Center: {x: 0, y: 0.031249521, z: 0}
---- !u!114 &4475633663297669239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147767789015317990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c692b6c21c2c8c449552037c39773dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
-  AudioSourceTakeOutFromParent: 0
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8173081289734490473}
-        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
-        m_MethodName: Call
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Disposable: 0
-  PressDepth: {x: 0.005, y: 0, z: 0}
-  PressDuration: 0.1
 --- !u!82 &2100034385610936870
 AudioSource:
   m_ObjectHideFlags: 0
@@ -242,6 +207,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3840925263681130045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147767789015317990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf73a5ac222b87419628fa010f00154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  AudioSourceTakeOutFromParent: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  Disposable: 0
+  PressDepth: {x: 0.005, y: 0, z: 0}
+  PressDuration: 0.1
+  FloorNumber: 1
 --- !u!1 &221746502894208230
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,8 +857,8 @@ GameObject:
   - component: {fileID: 1086778749320675805}
   - component: {fileID: 6819661432409172348}
   - component: {fileID: 5316651217590222654}
-  - component: {fileID: 5684478948901723899}
   - component: {fileID: 3324884506220190668}
+  - component: {fileID: 2599755675265313498}
   m_Layer: 6
   m_Name: btn4
   m_TagString: Untagged
@@ -966,41 +955,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012499999, y: 0.012499999, z: 0.024999999}
   m_Center: {x: 0, y: 0.031249998, z: 0}
---- !u!114 &5684478948901723899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3240441052038086597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c692b6c21c2c8c449552037c39773dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
-  AudioSourceTakeOutFromParent: 0
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8173081289734490473}
-        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
-        m_MethodName: Call
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Disposable: 0
-  PressDepth: {x: 0.005, y: 0, z: 0}
-  PressDuration: 0.1
 --- !u!82 &3324884506220190668
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1098,6 +1052,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2599755675265313498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240441052038086597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf73a5ac222b87419628fa010f00154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  AudioSourceTakeOutFromParent: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  Disposable: 0
+  PressDepth: {x: 0.005, y: 0, z: 0}
+  PressDuration: 0.1
+  FloorNumber: 1
 --- !u!1 &3413769076002936523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,8 +1088,8 @@ GameObject:
   - component: {fileID: 8221475640642346209}
   - component: {fileID: 689973245261850779}
   - component: {fileID: 6618357690577105569}
-  - component: {fileID: 3864904327892690739}
   - component: {fileID: 7016818340005160643}
+  - component: {fileID: 3710547987590865024}
   m_Layer: 6
   m_Name: btn1
   m_TagString: Untagged
@@ -1208,41 +1186,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012499999, y: 0.012499999, z: 0.024999999}
   m_Center: {x: 0, y: 0.031249998, z: 0}
---- !u!114 &3864904327892690739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413769076002936523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c692b6c21c2c8c449552037c39773dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
-  AudioSourceTakeOutFromParent: 0
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8173081289734490473}
-        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
-        m_MethodName: Call
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Disposable: 0
-  PressDepth: {x: 0.005, y: 0, z: 0}
-  PressDuration: 0.1
 --- !u!82 &7016818340005160643
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1340,6 +1283,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3710547987590865024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413769076002936523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf73a5ac222b87419628fa010f00154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  AudioSourceTakeOutFromParent: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  Disposable: 0
+  PressDepth: {x: 0.005, y: 0, z: 0}
+  PressDuration: 0.1
+  FloorNumber: 1
 --- !u!1 &5005776497086391314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,8 +1319,8 @@ GameObject:
   - component: {fileID: 2805610446910745091}
   - component: {fileID: 8085795252553957010}
   - component: {fileID: 6937780998007560344}
-  - component: {fileID: 3357322507535820936}
   - component: {fileID: 2076256544763944295}
+  - component: {fileID: 849466949640666508}
   m_Layer: 6
   m_Name: btn8
   m_TagString: Untagged
@@ -1450,41 +1417,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012499999, y: 0.012499999, z: 0.024999999}
   m_Center: {x: 0, y: 0.031249998, z: 0}
---- !u!114 &3357322507535820936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5005776497086391314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c692b6c21c2c8c449552037c39773dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
-  AudioSourceTakeOutFromParent: 0
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8173081289734490473}
-        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
-        m_MethodName: Call
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Disposable: 0
-  PressDepth: {x: 0.005, y: 0, z: 0}
-  PressDuration: 0.1
 --- !u!82 &2076256544763944295
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1582,6 +1514,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &849466949640666508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005776497086391314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf73a5ac222b87419628fa010f00154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  AudioSourceTakeOutFromParent: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  Disposable: 0
+  PressDepth: {x: 0.005, y: 0, z: 0}
+  PressDuration: 0.1
+  FloorNumber: 1
 --- !u!1 &5104842492525343318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,8 +1550,8 @@ GameObject:
   - component: {fileID: 8095911502589790319}
   - component: {fileID: 7902080956903904780}
   - component: {fileID: 7221250280881128105}
-  - component: {fileID: 6951435740951291298}
   - component: {fileID: 2251264162266390585}
+  - component: {fileID: 8843138669009366579}
   m_Layer: 6
   m_Name: btn6
   m_TagString: Untagged
@@ -1692,41 +1648,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012499999, y: 0.012499999, z: 0.024999999}
   m_Center: {x: 0, y: 0.031249998, z: 0}
---- !u!114 &6951435740951291298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5104842492525343318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c692b6c21c2c8c449552037c39773dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
-  AudioSourceTakeOutFromParent: 0
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8173081289734490473}
-        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
-        m_MethodName: Call
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Disposable: 0
-  PressDepth: {x: 0.005, y: 0, z: 0}
-  PressDuration: 0.1
 --- !u!82 &2251264162266390585
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1824,6 +1745,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8843138669009366579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104842492525343318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf73a5ac222b87419628fa010f00154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  AudioSourceTakeOutFromParent: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  Disposable: 0
+  PressDepth: {x: 0.005, y: 0, z: 0}
+  PressDuration: 0.1
+  FloorNumber: 1
 --- !u!1 &5212332844868373624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,8 +1781,8 @@ GameObject:
   - component: {fileID: 4156662872897439155}
   - component: {fileID: 5171945697282567587}
   - component: {fileID: 5183861326610160919}
-  - component: {fileID: 2056151376005327393}
   - component: {fileID: 3706609541567581519}
+  - component: {fileID: 1850281478100354662}
   m_Layer: 6
   m_Name: btn3
   m_TagString: Untagged
@@ -1934,41 +1879,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012499999, y: 0.012499999, z: 0.024999999}
   m_Center: {x: 0, y: 0.031249998, z: 0}
---- !u!114 &2056151376005327393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5212332844868373624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c692b6c21c2c8c449552037c39773dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
-  AudioSourceTakeOutFromParent: 0
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8173081289734490473}
-        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
-        m_MethodName: Call
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Disposable: 0
-  PressDepth: {x: 0.005, y: 0, z: 0}
-  PressDuration: 0.1
 --- !u!82 &3706609541567581519
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2066,6 +1976,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1850281478100354662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212332844868373624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf73a5ac222b87419628fa010f00154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  AudioSourceTakeOutFromParent: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  Disposable: 0
+  PressDepth: {x: 0.005, y: 0, z: 0}
+  PressDuration: 0.1
+  FloorNumber: 1
 --- !u!1 &5684846311254069379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2119,6 +2053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1
+  Broken: 0
+  NotEnergy: 0
   elevatorDoors:
   - {fileID: 4559568465380424714}
   - {fileID: 5707157384037394598}
@@ -2128,6 +2064,15 @@ MonoBehaviour:
   OpenDoorAudio: {fileID: 8300000, guid: 3a68fa137bc499d43936fd307cb4d4b3, type: 3}
   DoorAudioSource: {fileID: 2226255790396876536}
   InElevatorAudioSource: {fileID: 7700871408794247029}
+  elevatorButtons:
+  - {fileID: 3710547987590865024}
+  - {fileID: 3840925263681130045}
+  - {fileID: 1850281478100354662}
+  - {fileID: 2599755675265313498}
+  - {fileID: 4832139386133450778}
+  - {fileID: 8843138669009366579}
+  - {fileID: 238165553940613756}
+  - {fileID: 849466949640666508}
 --- !u!1 &6094533896266539306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,8 +2152,8 @@ GameObject:
   - component: {fileID: 5557027769880172139}
   - component: {fileID: 512329197594300687}
   - component: {fileID: 5656169914395274453}
-  - component: {fileID: 1098716444407992295}
   - component: {fileID: 7555644997882467516}
+  - component: {fileID: 4832139386133450778}
   m_Layer: 6
   m_Name: btn5
   m_TagString: Untagged
@@ -2305,41 +2250,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012499999, y: 0.012499999, z: 0.024999999}
   m_Center: {x: 0, y: 0.031249998, z: 0}
---- !u!114 &1098716444407992295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6741938194907235952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c692b6c21c2c8c449552037c39773dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
-  AudioSourceTakeOutFromParent: 0
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8173081289734490473}
-        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
-        m_MethodName: Call
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Disposable: 0
-  PressDepth: {x: 0.005, y: 0, z: 0}
-  PressDuration: 0.1
 --- !u!82 &7555644997882467516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2437,6 +2347,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4832139386133450778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6741938194907235952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf73a5ac222b87419628fa010f00154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  AudioSourceTakeOutFromParent: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  Disposable: 0
+  PressDepth: {x: 0.005, y: 0, z: 0}
+  PressDuration: 0.1
+  FloorNumber: 1
 --- !u!1 &7273273910769522824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,8 +2585,8 @@ GameObject:
   - component: {fileID: 6717088866122770570}
   - component: {fileID: 4501276892707802109}
   - component: {fileID: 8267891389903852450}
-  - component: {fileID: 6556598436785401317}
   - component: {fileID: 1084837839046578986}
+  - component: {fileID: 238165553940613756}
   m_Layer: 6
   m_Name: btn7
   m_TagString: Untagged
@@ -2749,41 +2683,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012499999, y: 0.012499999, z: 0.024999999}
   m_Center: {x: 0, y: 0.031249521, z: 0}
---- !u!114 &6556598436785401317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7874684201222855007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c692b6c21c2c8c449552037c39773dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
-  AudioSourceTakeOutFromParent: 0
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8173081289734490473}
-        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
-        m_MethodName: Call
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Disposable: 0
-  PressDepth: {x: 0.005, y: 0, z: 0}
-  PressDuration: 0.1
 --- !u!82 &1084837839046578986
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2881,6 +2780,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &238165553940613756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7874684201222855007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf73a5ac222b87419628fa010f00154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  AudioSourceTakeOutFromParent: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  Disposable: 0
+  PressDepth: {x: 0.005, y: 0, z: 0}
+  PressDuration: 0.1
+  FloorNumber: 1
 --- !u!1 &8696900908566972553
 GameObject:
   m_ObjectHideFlags: 0
