@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,11 +15,6 @@ public class ElementUI : MonoBehaviour
     }
 }
 
-public class ScreenUI : ElementUI
-{
-    public string Id;
-}
-
 public class UI : MonoBehaviour
 {
     public List<ScreenUI> Screens;
@@ -26,6 +22,7 @@ public class UI : MonoBehaviour
     private void Awake()
     {
         Game.UI = this;
+        CloseAll();
     }
 
     public void CloseAll()
@@ -36,7 +33,6 @@ public class UI : MonoBehaviour
 
     public void Show(string screenId)
     {
-        CloseAll();
         foreach (var item in Screens)
         {
             if (item.Id == screenId)
@@ -45,5 +41,27 @@ public class UI : MonoBehaviour
                 break;
             }    
         }
+    }
+    
+    public void Hide(string screenId)
+    {
+        foreach (var item in Screens)
+        {
+            if (item.Id == screenId)
+            {
+                item.Hide();
+                break;
+            }    
+        }
+    }
+
+    internal void HideInteractable()
+    {
+        Hide("Interactable");
+    }
+
+    internal void ShowInteractable()
+    {
+        Show("Interactable");
     }
 }
