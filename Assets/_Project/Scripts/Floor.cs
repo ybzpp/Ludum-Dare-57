@@ -16,6 +16,7 @@ public class ElevatorDoorsGroup
 public class Floor : MonoBehaviour
 {
     public int FloorNumber;
+
     public Transform TargetPoint;
     public FloorButton[] Buttons;
     public ElevatorDoorsGroup[] Doors;
@@ -63,6 +64,11 @@ public class Floor : MonoBehaviour
         {
             l.Enable();
             l.DisableFlicker();
+        }
+
+        foreach (var e in PadikService.Elevators)
+        {
+            e.SetFloorToButtons(FloorNumber + 1);
         }
     }
 

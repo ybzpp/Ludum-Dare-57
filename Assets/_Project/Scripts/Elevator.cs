@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System; // Для использования List
+using System;
+using System.Linq; // Для использования List
 
 public class Elevator : MonoBehaviour
 {
@@ -198,7 +199,15 @@ public class Elevator : MonoBehaviour
         ProcessFloorRequest(); // Обрабатываем следующий запрос из очереди
 
         Lamp.DisableFlicker();
-        EnergyDisable();
+
+        var floor = PadikService.Floors.Where(x => x.FloorNumber == currentFloor).First();
+        if (floor != null)
+        {
+            if (!floor.ElectricalPanel.IsEnabled)
+            {
+                EnergyDisable();
+            }
+        }
     }
 
     //Helper method to add a small delay before calling elevator

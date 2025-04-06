@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
 public class ElectricalPanel : MonoBehaviour
 {
@@ -12,23 +13,24 @@ public class ElectricalPanel : MonoBehaviour
     public float AnimationTime = 1f;
 
     [Header("Fuse")]
+    public TagTrigger FuseTrigger;
     public Transform FuseParent;
     public GameObject Fuse;
 
     [Header("Effects")]
     public ParticleSystem ElectricSparksFx;
     public ParticleSystem LightFx;
-    public MeshRenderer LightRenderer;
+    public MeshRenderer EnableLightRenderer;
+    public MeshRenderer DisableLightRenderer;
      
     [Header("Events")]
+    //public UnityEvent OnEnableEvent;
     public Action OnEnablePanel;
     public Action OnDisablePanel;
-    public TagTrigger FuseTrigger;
-
-    private bool _isEnable;
-    private bool _isReady = true;
 
     public bool IsEnabled => _isEnable;
+    private bool _isEnable;
+    private bool _isReady = true;
 
     private void Start()
     {
@@ -36,6 +38,7 @@ public class ElectricalPanel : MonoBehaviour
         RotateTo(DisableToggleRotation);
 
         FuseTrigger.OnColliderTrigger.AddListener(CheckFuse);
+        UpdateVisuals(); 
     }
 
     private void OnDestroy()
@@ -109,7 +112,9 @@ public class ElectricalPanel : MonoBehaviour
         UpdateVisuals();
 
         if (_isEnable)
+        {
             OnEnablePanel?.Invoke();
+        }
         else
             OnDisablePanel?.Invoke();
 
@@ -127,13 +132,15 @@ public class ElectricalPanel : MonoBehaviour
         if (_isEnable)
             ElectricSparksFx?.Play();
 
-        if (LightRenderer != null)
-            LightRenderer.material.color = _isEnable ? Color.green : Color.red;
+        var color = _isEnable ? Color.green : Color.red;
+
+        EnableLightRenderer.enabled = _isEnable;
+        DisableLightRenderer.enabled = !_isEnable;
 
         if (LightFx != null)
         {
             var mainModule = LightFx.main;
-            mainModule.startColor = _isEnable ? Color.green : Color.red;
+            mainModule.startColor = color;
         }
     }
 }

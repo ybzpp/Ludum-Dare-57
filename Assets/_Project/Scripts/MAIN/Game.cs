@@ -2,6 +2,7 @@
 
 public enum GameState
 {
+    None,
     Menu,
     Game,
 }
@@ -33,14 +34,34 @@ public static class Game
 
     public static void ChangeGameState(GameState state)
     {
+        UI.CloseAll();
         switch (state)
         {
+            case GameState.None:
+                InputUnlock();
+                break;
             case GameState.Menu:
+                InputUnlock();
+                UI.Show("Menu");
                 break;
             case GameState.Game:
+                InputLock();
+                UI.Show("Game");
                 break;
             default:
                 break;
         }
+    }
+
+    public static void InputLock()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public static void InputUnlock()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
