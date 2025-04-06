@@ -29,6 +29,7 @@ public static class Game
     public static SceneData SceneData;
     public static RuntimeData RuntimeData;
     public static PlayerController Player;
+    public static DragRigidbody DragRigidbody;
 
     public static void ChangeGameState(GameState state)
     {

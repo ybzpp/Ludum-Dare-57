@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -13,6 +14,18 @@ public static class PadikService
         var es = Elevators.Where(x => x.ID == key);
         foreach (var e in es)
             e.Call(number);
+    }
+
+    internal static void DisableElevators()
+    {
+        foreach (var e in Elevators)
+            e.EnergyDisable();
+    }
+
+    internal static void EnableElevators() 
+    {
+        foreach (var e in Elevators)
+            e.SetEnergy();
     }
 }
 

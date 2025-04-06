@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class FlickerEffect : MonoBehaviour
 {
     [Header("Light Settings")]
@@ -22,6 +21,28 @@ public class FlickerEffect : MonoBehaviour
     private bool hasEmission = false;
 
     void Start()
+    {
+        Enable();
+    }
+
+    private void OnDisable()
+    {
+        Disable();
+    }
+
+    public void Disable()
+    {
+        // Восстанавливаем оригинальный цвет эмиссии при отключении скрипта
+        if (objectMaterial != null)
+        {
+            objectMaterial.SetColor("_EmissionColor", originalEmissionColor);
+        }
+
+        // Останавливаем корутины, чтобы избежать ошибок при уничтожении объекта
+        StopAllCoroutines();
+    }
+
+    public void Enable()
     {
         // Проверяем наличие источника света
         if (lightSource != null)
@@ -62,17 +83,5 @@ public class FlickerEffect : MonoBehaviour
             objectMaterial.SetColor("_EmissionColor", newEmissionColor);
             yield return new WaitForSeconds(emissionFlickerSpeed);
         }
-    }
-
-    private void OnDisable()
-    {
-        // Восстанавливаем оригинальный цвет эмиссии при отключении скрипта
-        if (objectMaterial != null)
-        {
-            objectMaterial.SetColor("_EmissionColor", originalEmissionColor);
-        }
-
-        // Останавливаем корутины, чтобы избежать ошибок при уничтожении объекта
-        StopAllCoroutines();
     }
 }

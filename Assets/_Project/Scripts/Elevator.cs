@@ -19,6 +19,8 @@ public class Elevator : MonoBehaviour
     [Tooltip("¬рем€ ожидани€ перед закрытием дверей (в секундах)")]
     public float doorCloseDelay = 2f;
 
+    public Lamp Lamp;
+
     [Header("SFX")]
     public AudioClip CloseDoorAudio;
     public AudioClip OpenDoorAudio;
@@ -58,6 +60,8 @@ public class Elevator : MonoBehaviour
     public void SetEnergy()
     {
         NotEnergy = false;
+        Lamp.Enable();
+
         UpdateState();
     }
     
@@ -65,6 +69,8 @@ public class Elevator : MonoBehaviour
     public void EnergyDisable()
     {
         NotEnergy = true;
+        Lamp.Disable();
+
         UpdateState();
     }
 
@@ -165,6 +171,7 @@ public class Elevator : MonoBehaviour
     {
         isMoving = true;
         InElevatorAudioSource.Play();
+        Lamp.EnableFlicker();
 
         if (doorsOpen) CloseDoors(); //Close doors if they are open
 
@@ -189,6 +196,8 @@ public class Elevator : MonoBehaviour
         InElevatorAudioSource.Stop();
         OpenDoors();
         ProcessFloorRequest(); // ќбрабатываем следующий запрос из очереди
+
+        Lamp.DisableFlicker();
         EnergyDisable();
     }
 

@@ -27,5 +27,5 @@ namespace LD
             OnTrigger?.Invoke();
             if (Disposable) Collider.enabled = false;
         }
-    }
+    } 
 }

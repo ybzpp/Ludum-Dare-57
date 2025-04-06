@@ -1,6 +1,5 @@
-﻿using System;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class PlayerController : MonoBehaviour
 {
