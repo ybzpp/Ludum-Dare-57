@@ -34,12 +34,21 @@ namespace LD
             }
         }
 
+        public void Clear()
+        {
+            if (tempInteractableObject)
+            {
+                tempInteractableObject.Unselect();
+                tempInteractableObject = null;
+            }
+        }
+
         void Update()
         {
             if (Game.RuntimeData.IsPause)
             {
-                canUse = false;
-                tempInteractableObject = null;
+                canUse = false; 
+                Clear();
                 OnHide?.Invoke();
                 return;
             }
@@ -81,9 +90,13 @@ namespace LD
             {
                 Debug.DrawLine(ray.origin, ray.origin + ray.direction * Distance, Color.red, 1f);
                 canUse = false;
-                tempInteractableObject = null;
+                Clear();
                 OnHide?.Invoke();
             }
+
+            if (tempInteractableObject)
+                tempInteractableObject.Select();
+
 
             if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
             {

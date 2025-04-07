@@ -5,6 +5,7 @@ public class SceneData : MonoBehaviour
     public GameObject Cutscene;
     public GameObject Padik;
     public GameObject WindSFX;
+    public Material OutlineMaterial; //remove
 
     private void Awake()
     {

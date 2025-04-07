@@ -46,6 +46,7 @@ public class UI : MonoBehaviour
 
     public void Show(string screenId)
     {
+        gameObject.SetActive(true);
         foreach (var item in Screens)
         {
             if (item.Id == screenId)

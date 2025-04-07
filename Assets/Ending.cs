@@ -6,10 +6,17 @@ public class Ending : MonoBehaviour
     public GameObject PreEndView;
     public GameObject EndView;
 
-    public Transform Start;
+    public Transform StartPoint;
     public Transform End;
     public float FlyToStartTime = 1f;
     public float FlyToEndTime = 10f;
+
+
+    private void Start()
+    {
+        PreEndView.SetActive(true);
+        EndView.SetActive(false);
+    }
 
     public void ShowEnd()
     {
@@ -19,8 +26,8 @@ public class Ending : MonoBehaviour
 
     public void GoEnd()
     {
-        Game.RuntimeData.IsPause = true;
-        Game.UI.CloseAll();
+        Game.Pause();
+        Game.UI.gameObject.SetActive(false);
 
         StartCoroutine(CameraAnimation(Game.Player.PlayerCamera));
     }
@@ -33,21 +40,26 @@ public class Ending : MonoBehaviour
         var startDir = camera.transform.forward;
         while (t < FlyToStartTime)
         {
-            camera.transform.position = Vector3.Lerp(startPos, Start.position, t / FlyToStartTime);
-            camera.transform.forward = Vector3.Lerp(startDir, Start.forward, t / FlyToStartTime);
+            camera.transform.position = Vector3.Lerp(startPos, StartPoint.position, t / FlyToStartTime);
+            camera.transform.forward = Vector3.Lerp(startDir, StartPoint.forward, t / FlyToStartTime);
             t += Time.deltaTime;
             yield return null;
         }
 
         Game.TransitionUI.ShowWhiteScreen();
-        Game.TransitionUI.FadeIn(() => Game.Win());
+        Game.TransitionUI.FadeIn(() =>
+        {
+            Game.ChangeGameState(GameState.Win);
+            Game.TransitionUI.FadeOut();
+        });
 
 
         t = 0;
         var currentPos = camera.transform.position;
         while (t < FlyToEndTime)
         {
-            camera.transform.position = Vector3.Lerp(currentPos, End.position, t / FlyToEndTime);
+            camera.transform.position = Vector3.Lerp(StartPoint.position, End.position, t / FlyToEndTime);
+            camera.transform.forward = StartPoint.forward;
             t += Time.deltaTime;
             yield return null;
         }

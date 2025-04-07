@@ -8,6 +8,7 @@ public enum GameState
     None,
     Menu,
     Game,
+    Win,
 }
 
 public static class Helper
@@ -55,6 +56,7 @@ public static class Game
     public static void ChangeGameState(GameState state)
     {
         UI.CloseAll();
+        RuntimeData.GameState = state;
         switch (state)
         {
             case GameState.None:
@@ -67,6 +69,12 @@ public static class Game
             case GameState.Game:
                 InputLock();
                 UI.Show("Game");
+                break;
+            case GameState.Win:
+                InputUnlock();
+                RuntimeData.EndTime = Time.time;
+                RuntimeData.GameTime = Time.time - RuntimeData.StartTime;
+                UI.Show("Win");
                 break;
             default:
                 break;
@@ -105,13 +113,6 @@ public static class Game
     {
         UI.CloseAll();
         Reactor.OnStartGame?.Invoke();
-    }
-
-    public static void Win()
-    {
-        RuntimeData.EndTime = Time.time;
-        RuntimeData.GameTime = Time.time - RuntimeData.StartTime;
-        UI.Show("Win");
     }
 
     public static void RestartGame()
