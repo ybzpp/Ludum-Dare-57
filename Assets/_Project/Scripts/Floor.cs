@@ -22,8 +22,6 @@ public class Floor : MonoBehaviour
     public FloorButton[] Buttons;
     public ElevatorDoorsGroup[] Doors;
     public ElectricalPanel ElectricalPanel;
-
-    public List<Renderer> Renderers;
     public List<Lamp> Lamps;
 
     private void Start()
@@ -33,22 +31,29 @@ public class Floor : MonoBehaviour
             button.SetFloorNumber(FloorNumber);
         }
 
-        ElectricalPanel.OnEnablePanel += EnergyEnable;
-        ElectricalPanel.OnDisablePanel += EnergyDisable;
+        if (ElectricalPanel)
+        {
+            ElectricalPanel.OnEnablePanel += EnergyEnable;
+            ElectricalPanel.OnDisablePanel += EnergyDisable;
+        }
 
         EnergyDisable();
     }
 
     private void OnDestroy()
     {
-        ElectricalPanel.OnEnablePanel -= EnergyEnable;
-        ElectricalPanel.OnDisablePanel -= EnergyDisable;
+        if (ElectricalPanel)
+        {
+            ElectricalPanel.OnEnablePanel -= EnergyEnable;
+            ElectricalPanel.OnDisablePanel -= EnergyDisable;
+        }
     }
 
     private void EnergyDisable()
     {
         Debug.Log($"Floor:{FloorNumber} EnergyDisable");
 
+        AudioHelper.PlaySound("EnergyOff");
         PadikService.DisableElevators();
 
         foreach (var l in Lamps)

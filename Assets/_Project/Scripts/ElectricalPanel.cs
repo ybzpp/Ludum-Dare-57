@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Rendering.Universal;
 
 public class ElectricalPanel : MonoBehaviour
 {
+    public AudioSource AudioSource;
+
     [Header("Toggle Settings")]
     public Vector3 DisableToggleRotation;
     public Vector3 EnableToggleRotation;
@@ -24,13 +24,17 @@ public class ElectricalPanel : MonoBehaviour
     public MeshRenderer DisableLightRenderer;
      
     [Header("Events")]
-    //public UnityEvent OnEnableEvent;
     public Action OnEnablePanel;
     public Action OnDisablePanel;
 
     public bool IsEnabled => _isEnable;
     private bool _isEnable;
     private bool _isReady = true;
+
+    private void Awake()
+    {
+        AudioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -65,6 +69,7 @@ public class ElectricalPanel : MonoBehaviour
     public void Switch()
     {
         UpdateState(!_isEnable);
+
     }
 
     public void UpdateState(bool enable)
@@ -78,6 +83,8 @@ public class ElectricalPanel : MonoBehaviour
 
     private IEnumerator AnimateToggle()
     {
+        AudioHelper.PlaySound("SwitchToggle", AudioSource);
+
         _isReady = false;
 
         Vector3 startRotation = _isEnable ? DisableToggleRotation : EnableToggleRotation;
@@ -97,6 +104,8 @@ public class ElectricalPanel : MonoBehaviour
         {
             if (!Fuse)
             {
+                AudioHelper.PlaySound("SwitchToggleFail", AudioSource);
+
                 while (elapsed > 0)
                 {
                     elapsed -= Time.deltaTime;
@@ -113,6 +122,7 @@ public class ElectricalPanel : MonoBehaviour
 
         if (_isEnable)
         {
+            AudioHelper.PlaySound("SwitchToggleSuccess", AudioSource);
             OnEnablePanel?.Invoke();
         }
         else

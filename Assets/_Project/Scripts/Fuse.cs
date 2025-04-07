@@ -18,4 +18,9 @@ public class Fuse : MonoBehaviour
         _rb.useGravity = false;
         _collider.enabled = false;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        AudioHelper.PlaySound("FuseImpact", collision.contacts[0].point);
+    }
 }

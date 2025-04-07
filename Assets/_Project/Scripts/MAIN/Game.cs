@@ -23,11 +23,25 @@ public static class Helper
             GameObject.Destroy(child.gameObject);
         }
     }
+
+    internal static string GetCurretLocalization(NotesData.LocalizationData[] localizations)
+    {
+        var currentLocale = PlayerPrefs.GetString("Locale", "en");
+
+        foreach (var item in localizations)
+        {
+            if (item.LocaleId == currentLocale)
+                return item.Text;
+        }
+
+        return localizations[0].Text;
+    }
 }
 
 public static class Game
 {
     public static UI UI;
+    public static TransitionUI TransitionUI;
     public static SceneData SceneData;
     public static RuntimeData RuntimeData;
     public static PlayerController Player;
@@ -71,13 +85,17 @@ public static class Game
 
     public static void Pause()
     {
-        RuntimeData.IsPause = true;
+        if (RuntimeData)
+            RuntimeData.IsPause = true;
+
         InputUnlock();
     }
 
     public static void Continue()
     {
-        RuntimeData.IsPause = false;
+        if (RuntimeData)
+            RuntimeData.IsPause = false;
+
         InputLock();    
     }
 

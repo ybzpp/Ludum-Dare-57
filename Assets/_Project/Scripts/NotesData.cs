@@ -11,6 +11,13 @@ public class NotesData : ScriptableObject
     public class NoteData
     {
         public string Id;
+        public LocalizationData[] Localizations;
+    }
+
+    [Serializable]
+    public class LocalizationData
+    {
+        public string LocaleId;
         [TextArea]
         public string Text;
     }

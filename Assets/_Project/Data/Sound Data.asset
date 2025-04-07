@@ -104,7 +104,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 14ae706fef2303e4cb71112dbd5d250b, type: 3}
     - {fileID: 8300000, guid: b995bc1775ea83b4b8f861763e9a1424, type: 3}
     - {fileID: 8300000, guid: d15f7338d693f0343843a6b9096d27f6, type: 3}
-    volume: 0.5
+    volume: 0.7
     probability: 1
     spatialBlend: 1
     mute: 0
@@ -133,5 +133,55 @@ MonoBehaviour:
     volume: 1
     probability: 1
     spatialBlend: 0
+    mute: 0
+  - groupName: Play
+    clips:
+    - {fileID: 8300000, guid: cce9b90a1360be143879734601410478, type: 3}
+    volume: 0.5
+    probability: 1
+    spatialBlend: 0
+    mute: 0
+  - groupName: SwitchToggle
+    clips:
+    - {fileID: 8300000, guid: 347ca1fb7c4c5a44ba377e361a3d7826, type: 3}
+    volume: 0.6
+    probability: 1
+    spatialBlend: 1
+    mute: 0
+  - groupName: SwitchToggleFail
+    clips:
+    - {fileID: 8300000, guid: 578d728dc7cc8b8408f9ee7e24ac6a49, type: 3}
+    volume: 0.6
+    probability: 1
+    spatialBlend: 1
+    mute: 0
+  - groupName: SwitchToggleSuccess
+    clips:
+    - {fileID: 8300000, guid: 089a93009aeff3d4c919294dc96f79ec, type: 3}
+    volume: 1
+    probability: 1
+    spatialBlend: 1
+    mute: 0
+  - groupName: EnergyOff
+    clips:
+    - {fileID: 8300000, guid: 5eabecd73d48a1a48a4e9116f0749700, type: 3}
+    volume: 1
+    probability: 1
+    spatialBlend: 0
+    mute: 0
+  - groupName: Shovel
+    clips:
+    - {fileID: 8300000, guid: 8b71b01ffc3bf0a4ab6f44e902180476, type: 3}
+    volume: 1
+    probability: 1
+    spatialBlend: 0
+    mute: 0
+  - groupName: FuseImpact
+    clips:
+    - {fileID: 8300000, guid: 859ebd4f13b1bbe4eaa59586bade2a30, type: 3}
+    - {fileID: 8300000, guid: 7c78c35145555604cb6f54736facf021, type: 3}
+    volume: 1
+    probability: 1
+    spatialBlend: 1
     mute: 0
   backgroundSounds: []

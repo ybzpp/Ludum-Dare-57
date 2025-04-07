@@ -11,7 +11,7 @@ public class Note : InteractableObject
         var note = Game.NoteManager.noteConfig.notes.Where(x => x.Id == Id).First();
         if (note != null)
         {
-            Game.UI.ShowNote(note.Text);
+            Game.UI.ShowNote(Helper.GetCurretLocalization(note.Localizations));
         }
         else 
         {

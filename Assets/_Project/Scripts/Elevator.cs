@@ -83,6 +83,8 @@ public class Elevator : MonoBehaviour
 
     public void SetFloorToButtons(int floor)
     {
+        Debug.Log($"Elevator SetFloorToButtons: {floor}");
+
         foreach (var button in elevatorButtons)
             button.FloorNumber = floor;
     }
@@ -205,6 +207,7 @@ public class Elevator : MonoBehaviour
             yield return null;
         }
 
+        NumberDisplayText.text = ((int)targetFloorNumber).ToString();
         transform.position = targetPosition;
         currentFloor = targetFloor;
         isMoving = false;
@@ -217,9 +220,12 @@ public class Elevator : MonoBehaviour
         var floor = PadikService.Floors.Where(x => x.FloorNumber == currentFloor).First();
         if (floor != null)
         {
-            if (!floor.ElectricalPanel.IsEnabled)
+            if (floor.ElectricalPanel)
             {
-                EnergyDisable();
+                if (!floor.ElectricalPanel.IsEnabled)
+                {
+                    EnergyDisable();
+                }
             }
         }
     }

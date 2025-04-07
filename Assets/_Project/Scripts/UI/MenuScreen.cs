@@ -1,9 +1,17 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuScreen : ScreenUI
 {
     public Button StartButton;
     public Button SettingsButton;
+    public AudioSource AudioSource;
+
+    private void Awake()
+    {
+        if (!AudioSource)
+            AudioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -18,5 +26,6 @@ public class MenuScreen : ScreenUI
     public void StartGame()
     {
         Game.StartGame();
+        AudioHelper.PlaySound("Play", AudioSource);
     }
-}
+} 
