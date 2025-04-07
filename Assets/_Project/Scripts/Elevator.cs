@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
-using System.Linq; // Для использования List
+using System.Linq;
+using TMPro; // Для использования List
 
 public class Elevator : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Elevator : MonoBehaviour
     public float doorCloseDelay = 2f;
 
     public Lamp Lamp;
+    public TMP_Text NumberDisplayText;
 
     [Header("SFX")]
     public AudioClip CloseDoorAudio;
@@ -179,15 +181,27 @@ public class Elevator : MonoBehaviour
         while (doorsOpen)
             yield return null;
 
+        Vector3 startPosition = transform.position;
         Vector3 targetPosition = transform.position;
         targetPosition.y = PadikService.Floors[targetFloor].TargetPoint.position.y;
 
-        float distance = Vector3.Distance(transform.position, targetPosition);
+        float startFloorNumber = PadikService.Floors[currentFloor].FloorDisplayNumber;
+        float targetFloorNumber = PadikService.Floors[targetFloor].FloorDisplayNumber;
 
+        float totalDistance = Mathf.Abs(targetPosition.y - startPosition.y);
+        float remainingDistance = totalDistance;
+
+        float distance = Vector3.Distance(transform.position, targetPosition);
         while (distance > elevatorSpeed * Time.deltaTime * 0.5f)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, elevatorSpeed * Time.deltaTime);
             distance = Vector3.Distance(transform.position, targetPosition);
+
+            remainingDistance = Mathf.Abs(transform.position.y - targetPosition.y);
+
+            // Правильный расчет normalizeValue (0-1) на основе пройденного пути
+            float normalizeValue = 1f - (remainingDistance / totalDistance);
+            NumberDisplayText.text = ((int)Mathf.Lerp(startFloorNumber, targetFloorNumber, normalizeValue)).ToString();
             yield return null;
         }
 
