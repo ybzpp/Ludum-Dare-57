@@ -34,6 +34,8 @@ public class Ending : MonoBehaviour
 
     public IEnumerator CameraAnimation(Camera camera)
     {
+        AudioHelper.PlaySound("EndSwoosh");
+
         var t = 0f;
         camera.transform.parent = null;
         var startPos = camera.transform.position;
@@ -53,7 +55,6 @@ public class Ending : MonoBehaviour
             Game.TransitionUI.FadeOut();
         });
 
-
         t = 0;
         var currentPos = camera.transform.position;
         while (t < FlyToEndTime)
@@ -63,7 +64,6 @@ public class Ending : MonoBehaviour
             t += Time.deltaTime;
             yield return null;
         }
-
     }
 
     private void OnDestroy()

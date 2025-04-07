@@ -187,4 +187,25 @@ MonoBehaviour:
     probability: 1
     spatialBlend: 1
     mute: 0
+  - groupName: PickUpKey
+    clips:
+    - {fileID: 8300000, guid: 4e677c2fc07d8c340afc01df2ccf5166, type: 3}
+    volume: 1
+    probability: 1
+    spatialBlend: 0
+    mute: 0
+  - groupName: PickUpGun
+    clips:
+    - {fileID: 8300000, guid: f26f79d75d2f93f47a17159300826656, type: 3}
+    volume: 1
+    probability: 1
+    spatialBlend: 0
+    mute: 0
+  - groupName: EndSwoosh
+    clips:
+    - {fileID: 8300000, guid: ae51bdb33809f774d8033079891fddab, type: 3}
+    volume: 1
+    probability: 1
+    spatialBlend: 0
+    mute: 0
   backgroundSounds: []
