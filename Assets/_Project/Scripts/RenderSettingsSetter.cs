@@ -16,7 +16,7 @@ public class RenderSettingsSetter : MonoBehaviour
     public Camera currentCamera;
 
 
-    void Start()
+    void OnEnable()
     {
         Load();
     }

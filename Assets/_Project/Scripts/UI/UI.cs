@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ElementUI : MonoBehaviour
@@ -23,6 +24,7 @@ public class UI : MonoBehaviour
     {
         Game.UI = this;
         CloseAll();
+        GetComponent<CanvasGroup>().alpha = 1;
     }
 
     public void CloseAll()

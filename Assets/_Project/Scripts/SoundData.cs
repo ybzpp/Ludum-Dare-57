@@ -8,6 +8,7 @@ public class SoundGroup
     public AudioClip[] clips;
     [Range(0f, 1f)] public float volume = 1f;
     [Range(0f, 1f)] public float probability = 1f; // Вероятность проигрывания звука (для прыжков 0.7)
+    [Range(0f, 1f)] public float spatialBlend = 1f; 
     public bool mute = false;
 }
 

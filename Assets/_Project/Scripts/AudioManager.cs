@@ -168,7 +168,6 @@ public class AudioManager : MonoBehaviour
 
     internal void PlaySound(string groupName, AudioSource source)
     {
-        Debug.Log($"PlaySound :{groupName}");
         var group = soundConfig.soundGroups.FirstOrDefault(g => g.groupName == groupName);
         if (group == null || group.clips.Length == 0 || group.mute)
             return;
@@ -177,8 +176,7 @@ public class AudioManager : MonoBehaviour
             return;
 
         var clip = group.clips[UnityEngine.Random.Range(0, group.clips.Length)];
-        Debug.Log($"PlaySound2 :{groupName}");
-        source.spatialBlend = 1f;
+        source.spatialBlend = group.spatialBlend;
         source.clip = clip;
         source.volume = group.volume;
         source.loop = false;
@@ -228,7 +226,6 @@ public class AudioManager : MonoBehaviour
             return;
 
         var sound = sounds[UnityEngine.Random.Range(0, sounds.Length)];
-        Debug.Log($"sound.clips:{sound.clips}");
         var clip = sound.clips[UnityEngine.Random.Range(0, sound.clips.Length)];
 
         if (source.mute)

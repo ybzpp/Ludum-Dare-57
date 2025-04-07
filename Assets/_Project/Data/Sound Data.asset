@@ -22,6 +22,7 @@ MonoBehaviour:
     - {fileID: 0}
     volume: 1
     probability: 1
+    spatialBlend: 1
     mute: 0
   - groupName: Metal_Walk
     clips:
@@ -42,6 +43,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 5e0fe368d9a158a46b0fe96e660e78cc, type: 3}
     volume: 1
     probability: 1
+    spatialBlend: 1
     mute: 0
   - groupName: Snow_Walk
     clips:
@@ -59,6 +61,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: bd926afca0aa8ab48b8abfc15454bc3d, type: 3}
     volume: 1
     probability: 1
+    spatialBlend: 1
     mute: 0
   - groupName: Rock_Walk
     clips:
@@ -73,6 +76,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 0bc66974c41ff8c4fa15f46d21ad3548, type: 3}
     volume: 0.5
     probability: 1
+    spatialBlend: 1
     mute: 0
   - groupName: Wood_Walk
     clips:
@@ -88,6 +92,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: ec4bd5988d7de0c41ab2d9959705dd8b, type: 3}
     volume: 0.7
     probability: 1
+    spatialBlend: 1
     mute: 0
   - groupName: Tile_Walk
     clips:
@@ -101,6 +106,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d15f7338d693f0343843a6b9096d27f6, type: 3}
     volume: 0.5
     probability: 1
+    spatialBlend: 1
     mute: 0
   - groupName: Doorbell
     clips:
@@ -109,11 +115,23 @@ MonoBehaviour:
     - {fileID: 0}
     volume: 0.5
     probability: 1
+    spatialBlend: 1
     mute: 0
   - groupName: KnockKnock
     clips:
     - {fileID: 0}
     volume: 0.5
     probability: 1
+    spatialBlend: 1
+    mute: 0
+  - groupName: TextTyper
+    clips:
+    - {fileID: 8300000, guid: 9925b1e5bf5a1654083f1a947ae5c268, type: 3}
+    - {fileID: 8300000, guid: 7064622d288947f40a068a526703c214, type: 3}
+    - {fileID: 8300000, guid: 180198c69ab14d440a45fe539024e42e, type: 3}
+    - {fileID: 8300000, guid: 18346cefbfe5cfb40af1270c49c37334, type: 3}
+    volume: 1
+    probability: 1
+    spatialBlend: 0
     mute: 0
   backgroundSounds: []

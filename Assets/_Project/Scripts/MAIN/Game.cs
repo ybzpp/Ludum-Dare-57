@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public enum GameState
 {
@@ -31,6 +32,7 @@ public static class Game
     public static RuntimeData RuntimeData;
     public static PlayerController Player;
     public static DragRigidbody DragRigidbody;
+    public static Reactor Reactor;
 
     public static void ChangeGameState(GameState state)
     {
@@ -63,5 +65,11 @@ public static class Game
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public static void StartGame()
+    {
+        UI.CloseAll();
+        Reactor.OnStartGame?.Invoke();
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectsMover : MonoBehaviour
@@ -19,6 +20,7 @@ public class ObjectsMover : MonoBehaviour
 
     private void InitializeObjects()
     {
+        isDisable = false;
         objectsMoving = new List<bool>();
         distancesCovered = new List<float>();
 
@@ -58,7 +60,18 @@ public class ObjectsMover : MonoBehaviour
         {
             obj.transform.position = StartPoint.position;
             distancesCovered[index] = 0f;
+
+            if (isDisable)
+            {
+                obj.gameObject.SetActive(false);
+            }
         }
+    }
+
+    private bool isDisable;
+    public void Disable()
+    {
+        isDisable = true;
     }
 
     private void CheckDistanceToNextObject(int currentIndex)
