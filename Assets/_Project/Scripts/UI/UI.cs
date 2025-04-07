@@ -19,15 +19,26 @@ public class ElementUI : MonoBehaviour
 public class UI : MonoBehaviour
 {
     public List<ScreenUI> Screens;
+    public NotesScreen Notes;
 
     private void Awake()
     {
         Game.UI = this;
         CloseAll();
         GetComponent<CanvasGroup>().alpha = 1;
+
+        var n = GetScreen("Notes"); 
+        if (n != null)
+        {
+            Notes = n.GetComponent<NotesScreen>();
+        }
+        else
+        {
+            Debug.LogError($"NotesScreen not find!");
+        }
     }
 
-    public void CloseAll()
+    public void CloseAll() 
     {
         foreach (ScreenUI screen in Screens)
             screen.Hide();
@@ -57,6 +68,19 @@ public class UI : MonoBehaviour
         }
     }
 
+    public ScreenUI GetScreen(string id)
+    {
+        foreach (var item in Screens)
+        {
+            if (item.Id == id)
+            {
+                return item;
+            }    
+        }
+
+        return null;
+    }
+
     internal void HideInteractable()
     {
         Hide("Interactable");
@@ -65,5 +89,11 @@ public class UI : MonoBehaviour
     internal void ShowInteractable()
     {
         Show("Interactable");
+    }
+
+    internal void ShowNote(string text)
+    {
+        Notes.SetText(text);
+        Notes.Show();
     }
 }

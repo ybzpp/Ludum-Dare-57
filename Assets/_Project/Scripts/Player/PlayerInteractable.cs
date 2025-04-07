@@ -36,6 +36,14 @@ namespace LD
 
         void Update()
         {
+            if (Game.RuntimeData.IsPause)
+            {
+                canUse = false;
+                tempInteractableObject = null;
+                OnHide?.Invoke();
+                return;
+            }
+
             Ray ray = new Ray(Camera.transform.position, Camera.transform.forward);
 
             if (Physics.Raycast(ray, out RaycastHit hit, Distance, InteractebleLayer))

@@ -2,12 +2,16 @@
 
 public class Starter : MonoBehaviour
 {
+    public GameState StartGameState;
 
-    private void Awake()
+    private void Start()
     {
+        ApplySettings();
+        Game.ChangeGameState(StartGameState);
     }
 
-    private void Update()
+    public void ApplySettings()
     {
+
     }
 }

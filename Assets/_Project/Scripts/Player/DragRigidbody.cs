@@ -22,6 +22,9 @@ public class DragRigidbody : MonoBehaviour
     private int _draggbleLayerMaskIndex = 11;
     void Update()
     {
+        if (Game.RuntimeData.IsPause)
+            return;
+
         // On mouse down — try to grab
         if (Input.GetMouseButtonDown(0))
         {

@@ -3,6 +3,7 @@
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Base setup")]
     public float StandHeight = 2f;
     public Vector3 StandCenter = Vector3.zero;
     public float CrouchHeight = 1f;
@@ -97,6 +98,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Game.RuntimeData.IsPause)
+            return;
+
         if (!_controller)
         {
             _controller = GetComponent<CharacterController>();

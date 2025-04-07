@@ -3,34 +3,32 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public static class AudioHelper
 {
     public static void PlaySound(string groupName, Vector3 position = default)
     {
-        AudioManager.Instance?.PlaySound(groupName, position);
+        Game.AudioManager?.PlaySound(groupName, position);
     }
 
     public static AudioClip GetClipByIndex(string groupName, int index)
     {
-        return AudioManager.Instance.GetClipByIndex(groupName, index);
+        return Game.AudioManager.GetClipByIndex(groupName, index);
     }
 
     public static int GetGroupLength(string groupName)
     {
-        return AudioManager.Instance.GetGroupLength(groupName);
+        return Game.AudioManager.GetGroupLength(groupName);
     }
 
     public static void PlaySound(string groupName, AudioSource audioSource)
     {
-        AudioManager.Instance?.PlaySound(groupName, audioSource);
+        Game.AudioManager?.PlaySound(groupName, audioSource);
     }
 
     public static void PlayMusic()
     {
-        AudioManager.Instance?.StartBackgroundMusic();
+        Game.AudioManager?.StartBackgroundMusic();
     }
 
     public static void StopMusic()
@@ -48,8 +46,6 @@ public class AudioSettings
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
-
     [SerializeField] private SoundData soundConfig;
     [SerializeField] private AudioMixer audioMixer;
 
@@ -64,9 +60,9 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (Game.AudioManager == null)
         {
-            Instance = this;
+            Game.AudioManager = this;
             DontDestroyOnLoad(gameObject);
             InitializeAudioSources();
         }

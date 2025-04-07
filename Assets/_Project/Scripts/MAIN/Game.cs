@@ -32,6 +32,8 @@ public static class Game
     public static RuntimeData RuntimeData;
     public static PlayerController Player;
     public static DragRigidbody DragRigidbody;
+    public static AudioManager AudioManager;
+    public static NoteManager NoteManager;
     public static Reactor Reactor;
 
     public static void ChangeGameState(GameState state)
@@ -65,6 +67,18 @@ public static class Game
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public static void Pause()
+    {
+        RuntimeData.IsPause = true;
+        InputUnlock();
+    }
+
+    public static void Continue()
+    {
+        RuntimeData.IsPause = false;
+        InputLock();
     }
 
     public static void StartGame()
