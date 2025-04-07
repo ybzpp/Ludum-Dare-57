@@ -1,0 +1,10 @@
+# Made in Blockbench 4.12.4
+newmtl m_62d2e2d8-f17b-86d0-a1a5-e03cdbc58a3b
+map_Kd doors2.png
+newmtl m_556a7c7b-522b-57ee-7e5c-917a6ac9fb8b
+map_Kd hole.png
+newmtl m_c7065aef-3bb5-2071-dde1-34a4182c2334
+map_Kd wall tex.png
+newmtl m_4f3e89f6-d1ee-a3e6-718a-35e0f05f282d
+map_Kd door tex.png
+newmtl none

@@ -16,6 +16,7 @@ public class ElevatorDoorsGroup
 public class Floor : MonoBehaviour
 {
     public int FloorNumber;
+    public int FloorDisplayNumber;
 
     public Transform TargetPoint;
     public FloorButton[] Buttons;

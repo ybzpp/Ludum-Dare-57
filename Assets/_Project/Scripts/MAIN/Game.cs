@@ -78,7 +78,7 @@ public static class Game
     public static void Continue()
     {
         RuntimeData.IsPause = false;
-        InputLock();
+        InputLock();    
     }
 
     public static void StartGame()

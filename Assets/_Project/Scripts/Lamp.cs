@@ -6,6 +6,26 @@ public class Lamp : MonoBehaviour
     public GameObject EnableView;
     public FlickerEffect FlickerEffect;
 
+    public bool StartInit;
+    public bool StartFlicker;
+
+    private void Start()
+    {
+        if (StartInit)
+        {
+            Enable();
+
+            if (StartFlicker)
+            {
+                EnableFlicker();
+            }
+            else
+            {
+                DisableFlicker();
+            }
+        }
+    }
+
     public void Enable()
     {
         Debug.Log($"Lamp {gameObject.name} Enable");
