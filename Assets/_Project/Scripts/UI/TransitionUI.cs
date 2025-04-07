@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class TransitionUI : ScreenUI
@@ -53,12 +54,12 @@ public class TransitionUI : ScreenUI
         BlackScreen.SetActive(false);
     }
 
-    public void FadeOut()
+    public void FadeOut(Action callback = null)
     {
-        StartCoroutine(FadeOutAnim());
+        StartCoroutine(FadeOutAnim(callback));
     }
 
-    IEnumerator FadeOutAnim()
+    IEnumerator FadeOutAnim(Action callback = null)
     {
         var t = 0f;
         canvasGroup.blocksRaycasts = true;
@@ -70,14 +71,15 @@ public class TransitionUI : ScreenUI
         }
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0f;
+        callback?.Invoke();
     }
 
-    public void FadeIn()
+    public void FadeIn(Action callback = null)
     {
-        StartCoroutine(FadeInAnim());
+        StartCoroutine(FadeInAnim(callback));
     }
 
-    IEnumerator FadeInAnim()
+    IEnumerator FadeInAnim(Action callback = null)
     {
         var t = 0f;
         canvasGroup.blocksRaycasts = true;
@@ -88,5 +90,6 @@ public class TransitionUI : ScreenUI
             yield return null;
         }
         canvasGroup.alpha = 1f;
+        callback?.Invoke();
     }
 }

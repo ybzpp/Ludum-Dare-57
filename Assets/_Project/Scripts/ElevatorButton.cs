@@ -1,4 +1,6 @@
-﻿public class ElevatorButton : InteractButton
+﻿using UnityEngine;
+
+public class ElevatorButton : InteractButton
 {
     public int FloorNumber;
     private string _elevatorKey;

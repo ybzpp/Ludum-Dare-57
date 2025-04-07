@@ -29,11 +29,9 @@ public class InteractableObject : MonoBehaviour
 
     public virtual void Use()
     {
-        Debug.Log($"Use {gameObject.name}");
-
         if (AudioSource)
         {
-            AudioSource.Play();
+            AudioSource.PlayOneShot(AudioSource.clip);
             if (AudioSourceTakeOutFromParent)
             {
                 AudioSource.transform.parent = null;

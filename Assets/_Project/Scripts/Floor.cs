@@ -51,7 +51,7 @@ public class Floor : MonoBehaviour
 
     private void EnergyDisable()
     {
-        Debug.Log($"Floor:{FloorNumber} EnergyDisable");
+        //Debug.Log($"Floor:{FloorNumber} EnergyDisable");
 
         AudioHelper.PlaySound("EnergyOff");
         PadikService.DisableElevators();
@@ -62,7 +62,7 @@ public class Floor : MonoBehaviour
 
     private void EnergyEnable()
     {
-        Debug.Log($"Floor:{FloorNumber} EnergyEnable");
+        //Debug.Log($"Floor:{FloorNumber} EnergyEnable");
 
         PadikService.EnableElevators();
 

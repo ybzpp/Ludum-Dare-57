@@ -9,7 +9,7 @@ public static class PadikService
     public static List<Elevator> Elevators;
     public static void CallElevator(string key, int number)
     {
-        Debug.Log($"CallElevator key:{key} number:{number} ");
+        //Debug.Log($"CallElevator key:{key} number:{number} ");
 
         var es = Elevators.Where(x => x.ID == key);
         foreach (var e in es)

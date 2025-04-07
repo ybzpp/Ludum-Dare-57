@@ -84,11 +84,13 @@ public class UI : MonoBehaviour
     internal void HideInteractable()
     {
         Hide("Interactable");
+        Show("Cursor");
     }
 
     internal void ShowInteractable()
     {
         Show("Interactable");
+        Hide("Cursor");
     }
 
     internal void ShowNote(string text)

@@ -61,7 +61,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: bd926afca0aa8ab48b8abfc15454bc3d, type: 3}
     volume: 1
     probability: 1
-    spatialBlend: 1
+    spatialBlend: 0.2
     mute: 0
   - groupName: Rock_Walk
     clips:
@@ -106,13 +106,11 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d15f7338d693f0343843a6b9096d27f6, type: 3}
     volume: 0.7
     probability: 1
-    spatialBlend: 1
+    spatialBlend: 0.4
     mute: 0
   - groupName: Doorbell
     clips:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 8300000, guid: 69d3b32b2ac91b246b3eb7f4faf32d40, type: 3}
     volume: 0.5
     probability: 1
     spatialBlend: 1
@@ -180,6 +178,13 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 859ebd4f13b1bbe4eaa59586bade2a30, type: 3}
     - {fileID: 8300000, guid: 7c78c35145555604cb6f54736facf021, type: 3}
+    volume: 1
+    probability: 1
+    spatialBlend: 1
+    mute: 0
+  - groupName: Notes
+    clips:
+    - {fileID: 8300000, guid: f9dc5f435f3a0fb49b338141a8a64546, type: 3}
     volume: 1
     probability: 1
     spatialBlend: 1

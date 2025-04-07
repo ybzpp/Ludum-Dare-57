@@ -17,5 +17,7 @@ public class Note : InteractableObject
         {
             Debug.LogError($"Note id:{Id} not find!");
         }
+
+        AudioHelper.PlaySound("Notes");
     }
 }

@@ -20,6 +20,7 @@ public class Ending : MonoBehaviour
     public void GoEnd()
     {
         Game.RuntimeData.IsPause = true;
+        Game.UI.CloseAll();
 
         StartCoroutine(CameraAnimation(Game.Player.PlayerCamera));
     }
@@ -29,12 +30,18 @@ public class Ending : MonoBehaviour
         var t = 0f;
         camera.transform.parent = null;
         var startPos = camera.transform.position;
+        var startDir = camera.transform.forward;
         while (t < FlyToStartTime)
         {
             camera.transform.position = Vector3.Lerp(startPos, Start.position, t / FlyToStartTime);
+            camera.transform.forward = Vector3.Lerp(startDir, Start.forward, t / FlyToStartTime);
             t += Time.deltaTime;
             yield return null;
         }
+
+        Game.TransitionUI.ShowWhiteScreen();
+        Game.TransitionUI.FadeIn(() => Game.Win());
+
 
         t = 0;
         var currentPos = camera.transform.position;
@@ -44,6 +51,7 @@ public class Ending : MonoBehaviour
             t += Time.deltaTime;
             yield return null;
         }
+
     }
 
     private void OnDestroy()

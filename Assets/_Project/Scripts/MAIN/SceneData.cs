@@ -17,8 +17,10 @@ public class SceneData : MonoBehaviour
         Cutscene.SetActive(false);
         WindSFX.SetActive(false);
         Padik.SetActive(true);
+
         Game.ChangeGameState(GameState.Game);
         Game.TransitionUI.FadeOut();
+        Game.RuntimeData.StartTime = Time.time;
     }
 
     public void ShowCutscene()

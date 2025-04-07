@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class DragRigidbody : MonoBehaviour
 {
@@ -54,8 +55,14 @@ public class DragRigidbody : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, draggableLayers))
         {
-            if (hit.rigidbody != null && !hit.rigidbody.isKinematic)
+            if (hit.rigidbody != null)
             {
+                if (!hit.rigidbody.isKinematic && !hit.rigidbody.CompareTag("Fuse"))
+                {
+                    return;
+                }
+
+                hit.rigidbody.isKinematic = false;
                 grabbedRigidbody = hit.rigidbody;
                 grabOffset = hit.point - grabbedRigidbody.transform.position;
                 grabDistance = hit.distance;

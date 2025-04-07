@@ -83,7 +83,7 @@ public class Elevator : MonoBehaviour
 
     public void SetFloorToButtons(int floor)
     {
-        Debug.Log($"Elevator SetFloorToButtons: {floor}");
+        //Debug.Log($"Elevator SetFloorToButtons: {floor}");
 
         foreach (var button in elevatorButtons)
             button.FloorNumber = floor;
@@ -217,7 +217,7 @@ public class Elevator : MonoBehaviour
 
         Lamp.DisableFlicker();
 
-        var floor = PadikService.Floors.Where(x => x.FloorNumber == currentFloor).First();
+        var floor = PadikService.Floors.Where(x => x.FloorNumber == currentFloor)?.First();
         if (floor != null)
         {
             if (floor.ElectricalPanel)
@@ -243,7 +243,7 @@ public class Elevator : MonoBehaviour
     // Добавленный метод Call
     public void Call(int floorNumber)
     {
-        Debug.Log($"Elevator Call key:{ID} floorNumber:{floorNumber} CanUse:{CanUse} isMoving:{isMoving} isReady:{isReady} ");
+        //Debug.Log($"Elevator Call key:{ID} floorNumber:{floorNumber} CanUse:{CanUse} isMoving:{isMoving} isReady:{isReady} ");
 
         if (!CanUse)
             return;

@@ -14,7 +14,6 @@ public class FootstepSound : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, raycastDistance, groundLayers))
         {
-            Debug.Log($"hit:{hit.collider.name}");
             if (hit.collider.TryGetComponent(out Surface surface))
             {
                 return surface.SurfaceType;
@@ -26,9 +25,6 @@ public class FootstepSound : MonoBehaviour
 
     public void PlayFootstepSound()
     {
-
-        Debug.Log($"PlayFootstepSound");    
-
         switch (CheckSurface())
         {
             case SurfaceType.None:

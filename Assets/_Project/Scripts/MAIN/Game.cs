@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -103,5 +105,17 @@ public static class Game
     {
         UI.CloseAll();
         Reactor.OnStartGame?.Invoke();
+    }
+
+    public static void Win()
+    {
+        RuntimeData.EndTime = Time.time;
+        RuntimeData.GameTime = Time.time - RuntimeData.StartTime;
+        UI.Show("Win");
+    }
+
+    public static void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
