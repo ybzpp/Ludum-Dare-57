@@ -7,6 +7,7 @@ public class DragRigidbody : MonoBehaviour
     public float maxDistance = 5f;
     public float dragForce = 10f;
     public LayerMask draggableLayers;
+    public LayerMask wallLayers;
     public bool IsDraggable => grabbedRigidbody != null;
 
     private Camera cam;
@@ -21,7 +22,7 @@ public class DragRigidbody : MonoBehaviour
     }
 
     private int _draggbleLayerMaskIndex = 11;
-    void Update()
+    void LateUpdate()
     {
         if (Game.RuntimeData.IsPause)
             return;
@@ -70,11 +71,26 @@ public class DragRigidbody : MonoBehaviour
             }
         }
     }
+    Vector3 CheckWall(Vector3 targetPoint)
+    {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        var distance = Vector3.Distance(cam.transform.position, targetPoint);
+        if (Physics.Raycast(ray, out RaycastHit hit, distance, wallLayers))
+        {
+            targetPoint = hit.point;
+        }
+
+        return targetPoint;
+    }
 
     void DragObject()
     {
+
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         Vector3 targetPoint = ray.GetPoint(grabDistance) - grabOffset;
+
+        targetPoint = CheckWall(targetPoint);
+
         Vector3 newPos = Vector3.Lerp(grabbedRigidbody.position, targetPoint, Time.deltaTime * dragForce);
         grabbedRigidbody.MovePosition(newPos);
     }
