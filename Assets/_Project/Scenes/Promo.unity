@@ -5341,6 +5341,7 @@ MonoBehaviour:
   - {fileID: 189340}
   - {fileID: 1358193286}
   Notes: {fileID: 189340}
+  ToBeContinuedTextTyper: {fileID: 0}
 --- !u!224 &360327824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5375,7 +5376,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360327819}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -7529,6 +7530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameState: 0
   IsPause: 0
+  IsEnd: 0
   StartTime: 0
   EndTime: 0
 --- !u!114 &691300096
@@ -8879,6 +8881,9 @@ MonoBehaviour:
   draggableLayers:
     serializedVersion: 2
     m_Bits: 2048
+  wallLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &774821883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5826766117946405694, guid: e0a099b5d05ac0c409734b183112a054, type: 3}
