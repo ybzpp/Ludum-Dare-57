@@ -48,12 +48,7 @@ public class Ending : MonoBehaviour
             yield return null;
         }
 
-        Game.TransitionUI.ShowWhiteScreen();
-        Game.TransitionUI.FadeIn(() =>
-        {
-            Game.ChangeGameState(GameState.Win);
-            Game.TransitionUI.FadeOut();
-        });
+        StartCoroutine(UIAnimation());
 
         t = 0;
         var currentPos = camera.transform.position;
@@ -64,6 +59,26 @@ public class Ending : MonoBehaviour
             t += Time.deltaTime;
             yield return null;
         }
+    }
+
+    public IEnumerator UIAnimation()
+    {
+        yield return new WaitForSeconds(1f);
+
+        Game.TransitionUI.ShowWhiteScreen();
+        Game.TransitionUI.FadeIn(() =>
+        {
+            Game.UI.ToBeContinuedTextTyper.StartTyping();
+            StartCoroutine(ShowWinUIAnimation());
+        });
+    }
+
+    public IEnumerator ShowWinUIAnimation()
+    {
+        yield return new WaitForSeconds(3f);
+
+        Game.ChangeGameState(GameState.Win);
+        Game.TransitionUI.FadeOut();
     }
 
     private void OnDestroy()

@@ -228,6 +228,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Disposable: 0
+  outlineWidth: 0.05
   PressDepth: {x: 0.005, y: 0, z: 0}
   PressDuration: 0.1
   FloorNumber: 1
@@ -462,7 +463,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -404
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ff454f9666e8ea45b87f69b37eebd83, type: 2}
   m_sharedMaterial: {fileID: -8452399096616502900, guid: 6ff454f9666e8ea45b87f69b37eebd83, type: 2}
@@ -1020,6 +1021,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Disposable: 0
+  outlineWidth: 0.05
   PressDepth: {x: 0.005, y: 0, z: 0}
   PressDuration: 0.1
   FloorNumber: 1
@@ -1251,6 +1253,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Disposable: 0
+  outlineWidth: 0.05
   PressDepth: {x: 0.005, y: 0, z: 0}
   PressDuration: 0.1
   FloorNumber: 1
@@ -1482,6 +1485,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Disposable: 0
+  outlineWidth: 0.05
   PressDepth: {x: 0.005, y: 0, z: 0}
   PressDuration: 0.1
   FloorNumber: 1
@@ -1713,6 +1717,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Disposable: 0
+  outlineWidth: 0.05
   PressDepth: {x: 0.005, y: 0, z: 0}
   PressDuration: 0.1
   FloorNumber: 1
@@ -1944,6 +1949,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Disposable: 0
+  outlineWidth: 0.05
   PressDepth: {x: 0.005, y: 0, z: 0}
   PressDuration: 0.1
   FloorNumber: 1
@@ -2317,6 +2323,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Disposable: 0
+  outlineWidth: 0.05
   PressDepth: {x: 0.005, y: 0, z: 0}
   PressDuration: 0.1
   FloorNumber: 1
@@ -2750,6 +2757,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Disposable: 0
+  outlineWidth: 0.05
   PressDepth: {x: 0.005, y: 0, z: 0}
   PressDuration: 0.1
   FloorNumber: 1

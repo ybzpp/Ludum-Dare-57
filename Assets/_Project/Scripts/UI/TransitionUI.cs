@@ -13,6 +13,7 @@ public class TransitionUI : ScreenUI
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 1f;
 
         if (Game.TransitionUI == null)
         {

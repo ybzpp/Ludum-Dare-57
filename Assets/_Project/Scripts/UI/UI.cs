@@ -20,10 +20,12 @@ public class UI : MonoBehaviour
 {
     public List<ScreenUI> Screens;
     public NotesScreen Notes;
+    public TextTyper ToBeContinuedTextTyper;
 
     private void Awake()
     {
         Game.UI = this;
+
         CloseAll();
         GetComponent<CanvasGroup>().alpha = 1;
 

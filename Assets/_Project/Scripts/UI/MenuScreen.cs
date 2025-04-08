@@ -21,4 +21,12 @@ public class MenuScreen : ScreenUI
         Game.StartGame();
         AudioHelper.PlaySound("Play");
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            StartGame();
+        }
+    }
 } 
