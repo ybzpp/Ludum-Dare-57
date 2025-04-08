@@ -101,6 +101,15 @@ public static class Game
         InputUnlock();
     }
 
+    public static void End()
+    {
+        if (RuntimeData)
+            RuntimeData.IsEnd = true;
+
+        UI.CloseAll();
+        InputUnlock();
+    }
+
     public static void Continue()
     {
         if (RuntimeData)

@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Game.RuntimeData.IsPause)
+        if (Game.RuntimeData.IsPause || Game.RuntimeData.IsEnd)
             return;
 
         if (!_controller)

@@ -45,11 +45,10 @@ namespace LD
 
         void Update()
         {
-            if (Game.RuntimeData.IsPause)
+            if (Game.RuntimeData.IsPause || Game.RuntimeData.IsEnd)
             {
                 canUse = false; 
                 Clear();
-                OnHide?.Invoke();
                 return;
             }
 

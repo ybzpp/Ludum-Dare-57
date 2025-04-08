@@ -26,9 +26,7 @@ public class Ending : MonoBehaviour
 
     public void GoEnd()
     {
-        Game.Pause();
-        Game.UI.gameObject.SetActive(false);
-
+        Game.End();  
         StartCoroutine(CameraAnimation(Game.Player.PlayerCamera));
     }
 
@@ -65,20 +63,16 @@ public class Ending : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
+        Game.UI.ToBeContinuedTextTyper.StartTyping();
+
+        yield return new WaitForSeconds(2f);
+
         Game.TransitionUI.ShowWhiteScreen();
         Game.TransitionUI.FadeIn(() =>
         {
-            Game.UI.ToBeContinuedTextTyper.StartTyping();
-            StartCoroutine(ShowWinUIAnimation());
+            Game.ChangeGameState(GameState.Win);
+            Game.TransitionUI.FadeOut();
         });
-    }
-
-    public IEnumerator ShowWinUIAnimation()
-    {
-        yield return new WaitForSeconds(3f);
-
-        Game.ChangeGameState(GameState.Win);
-        Game.TransitionUI.FadeOut();
     }
 
     private void OnDestroy()

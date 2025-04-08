@@ -25,11 +25,15 @@ public class UI : MonoBehaviour
     private void Awake()
     {
         Game.UI = this;
-
-        CloseAll();
         GetComponent<CanvasGroup>().alpha = 1;
 
-        var n = GetScreen("Notes"); 
+        CloseAll();
+        NotesInit();
+    }
+
+    public void NotesInit()
+    {
+        var n = GetScreen("Notes");
         if (n != null)
         {
             Notes = n.GetComponent<NotesScreen>();
@@ -40,7 +44,7 @@ public class UI : MonoBehaviour
         }
     }
 
-    public void CloseAll() 
+    public void CloseAll()
     {
         foreach (ScreenUI screen in Screens)
             screen.Hide();

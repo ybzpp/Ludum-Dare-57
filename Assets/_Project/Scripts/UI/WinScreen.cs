@@ -24,4 +24,12 @@ public class WinScreen : ScreenUI
     {
         RestartButton.onClick.RemoveListener(Game.RestartGame);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Game.RestartGame();
+        }
+    }
 }
