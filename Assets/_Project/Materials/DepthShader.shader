@@ -29,8 +29,6 @@ Shader "Custom/TopMostRendererAdvanced"
         Pass
         {
             Blend SrcAlpha OneMinusSrcAlpha
-            ZWrite Off
-            ZTest Always
             Cull Back
 
             CGPROGRAM
