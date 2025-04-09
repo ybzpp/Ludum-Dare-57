@@ -104,6 +104,41 @@ public class Elevator : MonoBehaviour
         PadikService.Floors[currentFloor].OpenDoors(ID);
 
         StartIsReady();
+
+        if (currentFloor == 3)
+        {
+            var e = PadikService.GetOtherElevator(ID);
+            if (e != null)
+            {
+                e.Teleport(currentFloor);
+            }
+        } 
+    }
+
+    private void Teleport(int f)
+    {
+        Vector3 targetPosition = transform.position;
+        targetPosition.y = PadikService.Floors[f].TargetPoint.position.y;
+
+        currentFloor = f;
+        transform.position = targetPosition;
+
+        Lamp.DisableFlicker();
+
+        var floor = PadikService.Floors.Where(x => x.FloorNumber == currentFloor)?.First();
+        if (floor != null)
+        {
+            if (floor.ElectricalPanel)
+            {
+                if (!floor.ElectricalPanel.IsEnabled)
+                {
+                    EnergyDisable();
+                }
+            }
+        }
+
+        float targetFloorNumber = PadikService.Floors[currentFloor].FloorDisplayNumber;
+        NumberDisplayText.text = ((int)targetFloorNumber).ToString();
     }
 
     private void CloseDoors()
